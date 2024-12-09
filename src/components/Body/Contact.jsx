@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import map from "../../assets/map.jpg"
 import { Link } from 'react-router-dom'
 
 const Contact = () => {
 
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
     const [values, setValues] = useState({
         firstname: '',
         lastname:'',
@@ -16,10 +18,35 @@ const Contact = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(values)
+        setFormErrors(validate(values));
+        setIsSubmit(true);
+    };
+    useEffect(() => {
+        console.log(formErrors);
+        if(Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log(values);
+        }
+    },[formErrors])
+    const validate =(values) => {
+        const errors = {};
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!values.firstname){
+            errors.firstname = "First Name is required!" ;
+        }
+        if (!values.lastname){
+            errors.lastname = "Last Name is required!" ;
+        }
+        if (!values.email){
+            errors.email = "Email ID is required!" ;
+        } else if (!regex.test(values.email)) {
+            errors.email = "This is not a valid email format!";
+        }
+        
+        return errors;
     };
   return (
 <>
+
     <h1 className='text-3xl flex justify-center mt-10 bg-blue-500 p-10 text-white'>Contact Us</h1> 
         <div className='ml-32 mt-10 grid grid-cols-3 border-b-2 pb-5 w-full'>
             <div className='flex items-center border-r-2  ml-10'>
@@ -56,22 +83,29 @@ const Contact = () => {
         </div >
     <div>{/*for contact form and map */}
         <div className='grid grid-cols-3'>
-        <div className='flex justify-center  mt-16'>{/*ContactForm */}
+        <div className='flex justify-center  mt-16 ml-10'>{/*ContactForm */}
+            
                 <form onSubmit={handleSubmit}
                 className='border-2 w-fit rounded p-5 bg-white shadow-md'>
                     <h1 className='flex justify-center text-xl font-bold underline mb-5 '>
                         Registration Form
                     </h1>
-                    <div>
+                    <div className='flex justify-center w-80 mb-10 text-green-500'>
+                {Object.keys(formErrors).length === 0 && isSubmit ? (<div>Registration Form Successfully Submitted!</div>)
+                 : ( 
+                <pre>{JSON.stringify(values, undefined ,2)}</pre>)}
+            </div>
                     <div className='mb-5 '>
                     <label htmlFor='firstname' className='block text-gray-700 mb-2'>
                         First Name:
                     </label>
-                    <input type='text' name='firstname' placeholder='Enter your firstname' 
+                    <input type='text' name='firstname' placeholder='Enter your firstname'  
                     className=' border-gray-400 border-2 p-2 w-full rounded'
                     value={values.firstname}
                     onChange={(e) => handleChanges(e)} />
-                    </div><div className='mb-5 '>
+                    </div>
+                    <p className='text-red-500 p-2'>{formErrors.firstname}</p>
+                    <div className='mb-5 '>
                     <label htmlFor='lastname' className='block text-gray-700 mb-2'>
                         Last Name:
                     </label>
@@ -80,6 +114,7 @@ const Contact = () => {
                     value={values.lastname}
                     onChange={(e) => handleChanges(e)} />
                     </div>
+                    <p className='text-red-500 p-2'>{formErrors.lastname}</p>
                     <div className='mb-5 '>
                     <label htmlFor='email' className='block text-gray-700 mb-2'>
                         Email:
@@ -89,23 +124,25 @@ const Contact = () => {
                     value={values.email}
                     onChange={(e) => handleChanges(e)} />
                     </div>
+                    <p className='text-red-500 p-2'>{formErrors.email}</p>
                     <div className='mb-5 '>
                     <label htmlFor='number'
                     className='block text-gray-400 mb-2'>
                         Phone Number:
                     </label>
-                    <input type='tel' name='number' placeholder='Enter your phone number' 
+                    <input type='number' name='number' placeholder='Enter your phone number' 
                     className=' border-gray-400 border-2 p-2 w-full rounded'
                     value={values.number}
                     onChange={(e) => handleChanges(e)} />
                     </div>
+                    <p className='text-red-500 p-2'>{formErrors.number}</p>
                     <div className='flex justify-center'>
                     <button type='submit'
                     className='bg-blue-500 text-white px-5 py-2 rounded '>
                     Submit
                     </button>
                     </div>
-                    </div>
+                    
                 </form>
 
             </div>
