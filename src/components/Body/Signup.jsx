@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { useState ,useEffect } from 'react';
 const Signup = () => {
 
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
     const [values, setValues] = useState({
         firstname: '',
         lastname:'',
@@ -11,11 +13,39 @@ const Signup = () => {
     });
 
     const handleChanges = (e) => {
-        setValues({...values, [e.target.name]:[e.target.value]});
+        setValues({...values, [e.target.name]: e.target.value });
     };
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(values)
+        setFormErrors(validate(values));
+        setIsSubmit(true);
+    };
+    useEffect(() => {
+        console.log(formErrors);
+        if(Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log(values);
+        }
+    },[formErrors])
+
+    const validate = (values) => {
+        const errors = {};
+        if (!values.firstname) {
+            errors.firstname = "First Name is required!";
+        }
+        if (!values.lastname) {
+            errors.lastname = "Last Name is required!";
+        }
+        if (!values.username) {
+            errors.username = "Username is required!";
+        }
+        if (!values.password) {
+            errors.password = "Password is required!";
+        } else if (values.password.length < 4) {
+            errors.password = "Password cannot be less than 4 characters!";
+        } else if (values.password.length > 10) {
+            errors.password = "Password cannot be more than 10 characters!";
+        }
+        return errors;
     };
   return (
     <>
@@ -27,6 +57,12 @@ const Signup = () => {
                     <h1 className='flex justify-center text-xl font-bold underline mb-5 '>
                         Sign up
                     </h1>
+                    {Object.keys(formErrors).length === 0 && isSubmit ? (
+                    <div className='flex justify-center items-center mb-10 text-green-500'>
+                        Signed In Successfully!
+                    </div>)
+                    : ( 
+                    <pre>{JSON.stringify(values, undefined ,2)}</pre>)}
                     <div>
                     <div className='mb-5 '>
                     <label htmlFor='firstname' className='block text-gray-700 mb-2'>
@@ -36,7 +72,9 @@ const Signup = () => {
                     className=' border-gray-400 border-2 p-2 w-full rounded' 
                     value={values.firstname}
                     onChange={(e) => handleChanges(e)}/>
-                    </div><div className='mb-5 '>
+                    </div>
+                    <p className='text-red-500 p-2'>{formErrors.firstname}</p>
+                    <div className='mb-5 '>
                     <label htmlFor='lastname' className='block text-gray-700 mb-2'>
                         Last Name:
                     </label>
@@ -45,6 +83,7 @@ const Signup = () => {
                     value={values.lastname}
                     onChange={(e) => handleChanges(e)} />
                     </div>
+                    <p className='text-red-500 p-2'>{formErrors.lastname}</p>
                     <div className='mb-5 '>
                     <label htmlFor='username' className='block text-gray-700 mb-2'>
                         Username:
@@ -54,6 +93,7 @@ const Signup = () => {
                     value={values.username}
                     onChange={(e) => handleChanges(e)} />
                     </div>
+                    <p className='text-red-500 p-2'>{formErrors.username}</p>
                     <div className='mb-5 '>
                     <label htmlFor='password'
                     className='block text-gray-400 mb-2'>
@@ -64,6 +104,7 @@ const Signup = () => {
                     value={values.password}
                     onChange={(e) => handleChanges(e)} />
                     </div>
+                    <p className='text-red-500 p-2'>{formErrors.password}</p>
                     <div className='flex justify-center'>
                     <button className='bg-blue-500 text-white px-5 py-2 rounded'>
                     Signup

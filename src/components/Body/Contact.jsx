@@ -14,7 +14,7 @@ const Contact = () => {
     });
 
     const handleChanges = (e) => {
-        setValues({...values, [e.target.name]:[e.target.value]});
+        setValues({...values, [e.target.name]: e.target.value });
     };
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -27,23 +27,32 @@ const Contact = () => {
             console.log(values);
         }
     },[formErrors])
-    const validate =(values) => {
+
+    const validate = (values) => {
         const errors = {};
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!values.firstname){
-            errors.firstname = "First Name is required!" ;
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for basic email validation
+    
+        if (!values.firstname) {
+            errors.firstname = "First Name is required!";
         }
-        if (!values.lastname){
-            errors.lastname = "Last Name is required!" ;
+        if (!values.lastname) {
+            errors.lastname = "Last Name is required!";
         }
-        if (!values.email){
-            errors.email = "Email ID is required!" ;
+        if (!values.email) {
+            errors.email = "Email ID is required!";
         } else if (!regex.test(values.email)) {
             errors.email = "This is not a valid email format!";
         }
-        
+    
+        if (!values.number) {
+            errors.number = "Phone number is required!";
+        } else if (values.number.length < 10) {
+            errors.number = "Phone number must be at least 10 digits!";
+        }
+    
         return errors;
     };
+    
   return (
 <>
 
@@ -130,7 +139,7 @@ const Contact = () => {
                     className='block text-gray-400 mb-2'>
                         Phone Number:
                     </label>
-                    <input type='number' name='number' placeholder='Enter your phone number' 
+                    <input type='tel' name='number' placeholder='Enter your phone number' 
                     className=' border-gray-400 border-2 p-2 w-full rounded'
                     value={values.number}
                     onChange={(e) => handleChanges(e)} />
