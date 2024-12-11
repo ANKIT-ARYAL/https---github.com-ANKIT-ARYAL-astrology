@@ -1,47 +1,70 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import logo from '../../assets/logo.png';
 const Navbar = () => {
   return (
-    <div className="bg-blue-700 p-4">
+    <div className=" p-4">
       {/* Logo and Navigation */}
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo Section */}
-        <Link to="/" className="flex items-center">
+        <a href="#" className="flex items-center">
           <img
-            className="h-16 w-16 mr-2"
-            src="https://cdn.vectorstock.com/i/500p/62/22/handshake-circle-symbol-logo-design-vector-21246222.jpg"
-            alt="Broker Logo"
+            className="h-16 w-16"
+            src={logo}
+            alt=" Logo"
           />
-          <p className="text-white font-bold uppercase">Broker No.1</p>
-        </Link>
+        </a>
 
         {/* Navigation Links */}
-        <div className="flex space-x-8">
-          <Link
-            to="/"
-            className="text-white text-lg tracking-wide hover:text-blue-300 transition"
-          >
+        <div className="flex space-x-14">
+          <div className='flex flex-col '>
+          <a href="#"
+            className="text-lg text-red-300 tracking-wide hover:text-red-300 transition" >
             Home
-          </Link>
-          <Link
-            to="/contact"
-            className="text-white text-lg tracking-wide hover:text-blue-300 transition"
+            <p className='border-red-300 border-2 rounded-full '></p>
+          </a>
+          </div>
+          <a
+            href="#"
+            className="text-lg text-gray-700 tracking-wide hover:text-red-300 transition"
           >
-            Contact Us
-          </Link>
-          <Link
-            to="/login"
-            className="text-white text-lg tracking-wide hover:text-blue-300 transition"
+            About us
+          </a>
+          <a
+            href="#"
+            className="text-lg text-gray-700 tracking-wide hover:text-red-300 transition"
           >
-            Log In
-          </Link>
-          <Link
-            to="/signup"
-            className="text-white text-lg tracking-wide hover:text-blue-300 transition"
+            Services
+          </a>
+          <a
+            href="#"
+            className=" text-lg text-gray-700 tracking-wide hover:text-red-300 transition"
           >
-            Sign Up
-          </Link>
+            Portfolio
+          </a>
+          <a
+            href="#"
+            className=" text-lg text-gray-700 tracking-wide hover:text-red-300 transition"
+          >
+            Gallery
+          </a>
+          <a
+            href="#"
+            className=" text-lg text-gray-700 tracking-wide hover:text-red-300 transition"
+          >
+            Packages
+          </a>
+          <a
+            href="#"
+            className=" text-lg text-gray-700 tracking-wide hover:text-red-300 transition"
+          >
+            Contact us
+          </a>
+          <a
+            href="#"
+            className=" text-lg text-gray-700 tracking-wide hover:text-red-300 transition"
+          >
+            FAQ
+          </a>
         </div>
       </div>
     </div>
