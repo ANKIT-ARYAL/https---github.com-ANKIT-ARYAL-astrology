@@ -290,7 +290,7 @@ const Body = () => {
   
   <div className="flex flex-col items-center justify-center space-y-4">
     <img
-      src="https://lirp.cdn-website.com/28cd0bb4/dms3rep/multi/opt/traditional+american+wedding-1920w.jpeg"
+      src="https://www.brides.com/thmb/4mn_dIJedc6FA8NR3QLGZcBHb0s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/deyandre-vishal_-d0e67c7429c84d96bdcdd5cc72ac3406.jpeg"
       className="w-[200px] h-auto object-cover"
       alt="Wedding 1"
     />
@@ -305,7 +305,7 @@ const Body = () => {
       alt="Wedding 3"
     />
     <img
-      src="https://www.bankrate.com/2021/09/24141024/Average-wedding-costs-how-to-save-money.jpg?auto=webp&optimize=high&crop=16:9"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1xvW7rEoowcUezVFykGnUUBvLHQG31Sx6ww&s"
       className="w-[200px] h-auto object-cover "
       alt="Wedding 4"
     />
@@ -505,7 +505,7 @@ const Body = () => {
         <div className="relative">
         {/* First Image */}
         <img 
-        src="https://www.bankrate.com/2021/09/24141024/Average-wedding-costs-how-to-save-money.jpg?auto=webp&optimize=high&crop=16:9" 
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTa2_nGKiT9SU1HqEDFvqmLe_lEnbo2LyJaw&s" 
         alt="" 
         className="w-96 h-auto" 
         />
@@ -571,7 +571,7 @@ const Body = () => {
         <div className="relative">
         {/* First Image */}
         <img 
-        src="https://lirp.cdn-website.com/28cd0bb4/dms3rep/multi/opt/traditional+american+wedding-1920w.jpeg" 
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-iLziQvPyn5ViXJsLhpBZ8omdmbweFW7fbBj97BB_EV0AETlUwSnDdKYExOxyw6dQJA4&usqp=CAU" 
         alt="" 
         className="w-96 h-auto" 
         />
