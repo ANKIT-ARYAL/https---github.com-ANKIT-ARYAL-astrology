@@ -2,8 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* styles.css */
-.clip-slanted-right {
-    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
-  }
-  
+.nav-btn {
+    @apply  hover:bg-yellow-300 rounded-full hover:border-b-2 border-red-300 px-2 py-1 text-blue-900 text-xl font-light hover:scale-110
+}
+
+.heading {
+    @apply text-blue-900 text-4xl text-center font-serif 
+}
+
+.horoscope {
+    @apply flex flex-col items-center border-r-2 p-1 border-b-2 h-32
+}
+
+.horoscope-btns{
+    @apply px-2 py-1 w-[50%] rounded-full shadow-md mx-auto
+}
+
+.border-daily {
+    @apply border-2 rounded-full h-40 w-10 flex flex-col items-center shadow-md
+}
+
+.image-daily {
+    @apply relative h-40 w-10 object-cover rounded-full
+}
+.txt{
+    @apply absolute bottom-10 
+}.section{
+    @apply mt-10 w-fit h-fit ml-10 mr-10 border-2  flex items-center justify-center rounded-lg shadow-md p-2
+}.section-text{
+    @apply w-96 mt-5 text-blue-900
+}
+.horoscopic-pic{ 
+    @apply w-96 h-auto rounded-full p-2
+}
+.footer-links{
+    @apply px-2 py-2 text-white uppercase font-serif hover:bg-gray-300 rounded-full font-light w-fit hover:scale-105 
+}
+.footer-icons{
+    @apply ml-10 mt-5 
+}
+.div-screen{
+    @apply min-h-screen mt-10 flex justify-center 
+}
+.dropdown{
+    @apply block px-4 py-2 text-blue-900 hover:bg-yellow-200 font-light 
+}
+.login-input{
+    @apply  border-2 rounded-lg shadow-md w-full text-xl
+}
