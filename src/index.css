@@ -7,7 +7,7 @@
 }
 
 .heading {
-    @apply text-blue-900 text-4xl text-center font-serif 
+    @apply text-4xl text-center font-serif mt-10
 }
 
 .horoscope {
@@ -19,14 +19,14 @@
 }
 
 .border-daily {
-    @apply border-2 rounded-full h-40 w-10 flex flex-col items-center shadow-md
+    @apply border-2 rounded-full h-40 w-10 flex flex-col items-center shadow-md relative
 }
 
 .image-daily {
-    @apply relative h-40 w-10 object-cover rounded-full
+    @apply relative h-40 w-10 object-cover rounded-full hover:scale-105
 }
 .txt{
-    @apply absolute bottom-10 
+    @apply absolute bottom-0 translate-y-7
 }.section{
     @apply mt-10 w-fit h-fit ml-10 mr-10 border-2  flex items-center justify-center rounded-lg shadow-md p-2
 }.section-text{
@@ -42,11 +42,51 @@
     @apply ml-10 mt-5 
 }
 .div-screen{
-    @apply min-h-screen mt-10 flex justify-center 
+    @apply min-h-screen flex flex-col items-center
 }
 .dropdown{
-    @apply block px-4 py-2 text-blue-900 hover:bg-yellow-200 font-light 
+    @apply block px-4 py-2 text-blue-900 hover:bg-yellow-200 font-light
 }
 .login-input{
     @apply  border-2 rounded-lg shadow-md w-full text-xl
+}
+
+.blog-List{
+    @apply flex flex-col items-center
+}
+
+.blog-preview{
+    @apply mt-20  bg-blue-50 hover:bg-yellow-100 px-2  py-1 rounded-lg w-[600px] text-blue-900 hover:scale-110 flex flex-col items-center
+}
+
+.blog-title{
+    @apply text-blue-900 text-3xl text-center
+}
+
+.blog-text{
+    @apply mt-5 ml-10 mr-10 text-blue-900
+}
+
+.button{
+    @apply px-2 py-1 rounded-full shadow-md bg-red-400 hover:bg-yellow-200 text-blue-900 hover:scale-110 text-xl font-light
+}
+
+.blog-details{
+    @apply flex 
+}
+
+.message-box{
+@apply p-5 border-2 rounded-lg shadow-md w-96 absolute bg-white mt-20 opacity-95
+}
+
+.form{
+    @apply flex flex-col mt-10
+}
+
+.input{
+    @apply px-2 py-1 border-2 
+}
+
+.background-image{
+    @apply w-full h-[800px] relative flex justify-center
 }

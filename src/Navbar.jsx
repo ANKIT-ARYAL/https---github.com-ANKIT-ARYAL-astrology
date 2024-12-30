@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { FaRegUser } from "react-icons/fa";
 const Navbar = () => {
   return (
-    <div className=' bg-yellow-50 min-h-40'>
+    <div className=' bg-yellow-50 min-h-56'>
     <div className='relative flex items-center justify-center ml-10 mr-10'>
         <a href='/'>
         <img

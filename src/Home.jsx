@@ -7,8 +7,8 @@ const Home = () => {
     
   return (
     <>
-    <div className='flex mt-5'>
-      <div className='w-[70%] flex space-x-5 ml-10'>
+    <div className='div-screen'>
+      <div className='w-[100%] flex space-x-20 ml-10'>
         <ImageSlider />
         <div className='flex flex-col'>
         <img
@@ -21,7 +21,7 @@ const Home = () => {
         <p className='heading'>Weekly</p>
         </div>
         <div className='grid grid-cols-4 p-2 h-48'>
-            <div className='border-daily'>
+            <div className='border-daily '>
                 <img src='https://sundayguardianlive.com/wp-content/uploads/2022/12/Page-19-lead.jpg' 
                 className='image-daily'
                 />
